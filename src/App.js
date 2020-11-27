@@ -33,14 +33,8 @@ export class App extends React.Component {
 
   handleChange = (event) => {
     const { value } = event.target;
-    const { users } = this.state;
-    const filteredUsers = [...users].filter(user => {
-      return user.name.first.includes(value)
-    });
-    console.log(value);
     this.setState({
       [event.target.name]: value,
-      users: filteredUsers,
     });
   }
 
@@ -61,7 +55,10 @@ export class App extends React.Component {
             handleChange={this.handleChange}
           />
         </div>
-        <UserCards users={users} />
+        <UserCards
+          users={users}
+          value={search}  
+        />
       </div>
     );
   }
