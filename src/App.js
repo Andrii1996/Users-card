@@ -9,7 +9,7 @@ export class App extends React.Component {
   state = {
     users: [],
     search: '',
-    count: '',
+    count: 1,
   }
 
   async componentDidMount() {
@@ -17,18 +17,21 @@ export class App extends React.Component {
     this.setState({ users: users.results });
   }
 
-  handleClick = async (count) => {
+  handleClick = async () => {
+    const { count } = this.state;
+
+    if (count < 1) {
+      return;
+    }
     const newUser = await getUsers(count);
 
     this.setState(prevState => ({
       users: [...prevState.users, ...newUser.results],
+      count: 1,
     }));
   }
 
   handleChange = (event) => {
-    // const { search, count } = this.state;
-    // console.log(count, search);
-
     this.setState({
       [event.target.name]: event.target.value,
     });
@@ -39,10 +42,11 @@ export class App extends React.Component {
 
     return (
       <div className="App">
+        {users.length}
         <div>
           <NewUser
             handleClick={this.handleClick}
-            onChange={this.onChange}
+            handleChange={this.handleChange}
             count={count}
           />
           <FilteredUsers

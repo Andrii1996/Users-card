@@ -4,7 +4,7 @@ export const NewUser = ({ handleClick, handleChange, count }) => (
   <div>
     <input
       name="count"
-      type="text"
+      type="number"
       className="input"
       value={count}
       onChange={handleChange}
