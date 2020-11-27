@@ -1,7 +1,7 @@
 import React from 'react';
+import './UserCards.css';
 
 export const UserCards = ({ users, value }) => {
-console.log(value);
   const filteredUsers = [...users].filter(user => {
     return user.name.first.toLowerCase().includes(value.toLowerCase())
   });

@@ -4,6 +4,7 @@ import './App.css';
 import { UserCards } from './components/UserCards/UserCards';
 import { NewUser } from './components/NewUser/NewUser';
 import { FilteredUsers } from './components/FilteredUsers/FilteredUsers';
+import 'semantic-ui-css/semantic.min.css';
 
 export class App extends React.Component {
   state = {

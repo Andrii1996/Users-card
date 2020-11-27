@@ -2,17 +2,18 @@ import React from 'react';
 
 export const NewUser = ({ handleClick, handleChange, count }) => (
   <div>
-    <input
-      name="count"
-      type="number"
-      className="input"
-      value={count}
-      onChange={handleChange}
-    />
+    <div className="ui input">
+      <input
+        name="count"
+        type="number"
+        value={count}
+        onChange={handleChange}
+      />
+    </div>
     <button
       type="button"
       name="add"
-      className="button"
+      className="ui button"
       onClick={handleClick}
     >
       Add user
