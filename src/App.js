@@ -1,25 +1,57 @@
-import logo from './logo.svg';
+import React from 'react';
+import { getUsers } from './api';
 import './App.css';
+import { UserCards } from './components/UserCards/UserCards';
+import { NewUser } from './components/NewUser/NewUser';
+import { FilteredUsers } from './components/FilteredUsers/FilteredUsers';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export class App extends React.Component {
+  state = {
+    users: [],
+    search: '',
+    count: '',
+  }
+
+  async componentDidMount() {
+    const users = await getUsers(10);
+    this.setState({ users: users.results });
+  }
+
+  handleClick = async (count) => {
+    const newUser = await getUsers(count);
+
+    this.setState(prevState => ({
+      users: [...prevState.users, ...newUser.results],
+    }));
+  }
+
+  handleChange = (event) => {
+    // const { search, count } = this.state;
+    // console.log(count, search);
+
+    this.setState({
+      [event.target.name]: event.target.value,
+    });
+  }
+
+  render() {
+    const { users, search, count } = this.state;
+
+    return (
+      <div className="App">
+        <div>
+          <NewUser
+            handleClick={this.handleClick}
+            onChange={this.onChange}
+            count={count}
+          />
+          <FilteredUsers
+            value={search}
+            handleChange={this.handleChange}
+          />
+        </div>
+        <UserCards users={users} />
+      </div>
+    );
+  }
 }
-
-export default App;
