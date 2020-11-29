@@ -9,7 +9,7 @@ import 'semantic-ui-css/semantic.min.css';
 export class App extends React.Component {
   state = {
     users: [],
-    search: '',
+    value: '',
     count: 1,
   }
 
@@ -33,18 +33,20 @@ export class App extends React.Component {
   }
 
   handleChange = (event) => {
-    const { value } = event.target;
+    const { value, name } = event.target;
     this.setState({
-      [event.target.name]: value,
+      [name]: value,
     });
   }
 
   render() {
-    const { users, search, count } = this.state;
+    const { users, value, count } = this.state;
 
     return (
       <div className="App">
-        Users count:{' ' + users.length}
+        <div className="title">
+          Users count:{' ' + users.length}
+        </div>
         <div>
           <NewUser
             handleClick={this.handleClick}
@@ -52,13 +54,13 @@ export class App extends React.Component {
             count={count}
           />
           <FilteredUsers
-            value={search}
+            value={value}
             handleChange={this.handleChange}
           />
         </div>
         <UserCards
           users={users}
-          value={search}  
+          value={value}  
         />
       </div>
     );

@@ -3,9 +3,12 @@ import './UserCards.css';
 
 export const UserCards = ({ users, value }) => {
   const filteredUsers = [...users].filter(user => {
-    return user.name.first.toLowerCase().includes(value.toLowerCase())
+    const fullname = user.name.first + ' ' + user.name.last;
+    return fullname.toLowerCase().includes(value.toLowerCase())
+    || user.email.toLowerCase().includes(value.toLowerCase())
+    || user.cell.includes(value)
   });
-
+  console.log('render');
   return (
     <ul className="user">
       {filteredUsers.map((user) => (
@@ -19,10 +22,10 @@ export const UserCards = ({ users, value }) => {
             <span>Name :</span>{' ' + user.name.first + ' ' + user.name.last}
           </p>
           <p>
-            Email : {' ' + user.email}
+          <span>Email :</span>{' ' + user.email}
           </p>
           <p>
-            Phone : {' ' + user.cell}
+          <span>Phone :</span>{' ' + user.cell}
           </p>
         </li>
       ))}
