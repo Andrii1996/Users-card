@@ -15,14 +15,14 @@
   width: 250px;
   height: 350px;
   margin: 5px;
-  padding: 3px;
+  padding: 3px 10px;
   border: 1px solid silver;
   border-radius: 10px;
   list-style: none;
 }
 
 .user__card:hover {
-  box-shadow: 0 1px 8px silver;
+  box-shadow: 0 1px 8px rgb(218, 214, 214);
 }
 
 .user__img {
