@@ -1,9 +1,9 @@
 import React from 'react';
 import { getUsers } from './api';
 import './App.css';
-import { UserCards } from './components/UserCards/UserCards';
-import { NewUser } from './components/NewUser/NewUser';
-import { FilteredUsers } from './components/FilteredUsers/FilteredUsers';
+import { UserCards } from './components/UserCards/UserCards.jsx';
+import { NewUser } from './components/NewUser/NewUser.jsx';
+import { SearchOfUsers } from './components/SearchOfUsers/SearchOfUsers.jsx';
 import 'semantic-ui-css/semantic.min.css';
 
 export class App extends React.Component {
@@ -57,7 +57,7 @@ export class App extends React.Component {
             handleChange={this.handleChange}
             count={count}
           />
-          <FilteredUsers
+          <SearchOfUsers
             value={value}
             handleChange={this.handleChange}
           />

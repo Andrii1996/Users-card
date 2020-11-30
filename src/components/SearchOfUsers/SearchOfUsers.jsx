@@ -1,13 +1,13 @@
 import React from 'react';
-import '../FilteredUsers/FilteredUsers.css';
+import '../SearchOfUsers/SearchOfUsers.css';
 
-export const FilteredUsers = ({ handleChange, value }) => (
+export const SearchOfUsers = ({ handleChange, value }) => (
   <div className="ui input" id="input">
     <input
       placeholder="find user"
       name="value"
       onChange={handleChange}
-      vlaue={value}
+      value={value}
     />
   </div>
 
