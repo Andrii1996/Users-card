@@ -21,7 +21,7 @@ export const UserCards = ({ users, value }) => {
           <p>
             <span>Name :</span>{' ' + user.name.first + ' ' + user.name.last}
           </p>
-          <p>
+          <p className="user__email">
           <span>Email :</span>{' ' + user.email}
           </p>
           <p>

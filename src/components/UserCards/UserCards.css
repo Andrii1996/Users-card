@@ -2,7 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  max-width: 1500px;
+  max-width: 1600px;
   padding: 20px;
 
 }
@@ -12,19 +12,31 @@
   flex-direction: column;
   text-align: start;
   justify-content: space-around;
-  width: 250px;
-  height: 350px;
-  margin: 5px;
-  padding: 3px;
+  width: 270px;
+  height: 360px;
+  margin: 15px;
+  padding: 3px 10px;
+  font-size: 16px;
   border: 1px solid silver;
   border-radius: 10px;
   list-style: none;
+  transition: transform 0.5s, box-shadow 0.5s;
 }
 
 .user__card:hover {
-  box-shadow: 0 1px 8px silver;
+  box-shadow: 0 1px 8px rgb(218, 214, 214);
+  transform: scale(1.1);
+  border: 3px;
+}
+
+.user__email {
+  display: flex;
+  flex-direction: column;
 }
 
 .user__img {
-  border-radius: 40%;
+  border-radius: 50%;
+  width: 200px;
+  margin: 0 auto;
+  padding: 5px;
 }
