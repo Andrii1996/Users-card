@@ -37,7 +37,7 @@ export const UserCards = ({ users, value }) => {
         )
         : (
           <div className="user__alert">
-            Not found Users
+            No users found 
           </div>
         )
       }
