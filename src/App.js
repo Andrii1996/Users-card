@@ -22,6 +22,10 @@ export class App extends React.Component {
     const { count } = this.state;
 
     if (count < 1) {
+      this.setState({
+        count: 1,
+      });
+    
       return;
     }
     const newUser = await getUsers(count);
