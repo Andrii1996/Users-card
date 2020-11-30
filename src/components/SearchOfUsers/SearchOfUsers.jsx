@@ -1,5 +1,5 @@
 import React from 'react';
-import '../SearchOfUsers/SearchOfUsers.css';
+import './SearchOfUsers.css';
 
 export const SearchOfUsers = ({ handleChange, value }) => (
   <div className="ui input" id="input">

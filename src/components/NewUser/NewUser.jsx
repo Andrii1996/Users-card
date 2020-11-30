@@ -12,7 +12,7 @@ export const NewUser = ({ handleClick, handleChange, count }) => (
     </div>
     <button
       type="button"
-      name="add"
+      name="button"
       className="ui button"
       onClick={handleClick}
     >
